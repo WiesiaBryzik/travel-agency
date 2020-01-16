@@ -39,7 +39,7 @@ export default function reducer(statePart = [], action = {}) {
       console.log(action);
       return {
         ...statePart,
-        duration: { ...statePart.duration, ...action.payload },
+        duration: { ...statePart.duration, [action.payload.type]: action.payload.value },
       };
     case ADD_TAGS:
       return {

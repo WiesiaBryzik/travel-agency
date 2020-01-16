@@ -17,8 +17,18 @@ export const getFilteredTrips = ({ trips, filters }) => {
   }
 
   // TODO - filter by tags
-  if (filters.tags) {
-    output = output.filter(trip => filters.tags.every(tag => trip.tags.indexOf(tag) > -1));
+  if(filters.tags.length) {
+    const trips = output;
+    output = [];
+    trips.forEach(trip => {
+      filters.tags.forEach(tag => {
+        if(trip.tags.includes(tag)) {
+          if(!output.includes(trip)) {
+            output = [...output, trip];
+          }
+        }
+      });
+    });
   }
   // DONE - TODO - sort by cost descending (most expensive goes first)
 
@@ -37,11 +47,6 @@ export const getTripById = ({ trips }, tripId) => {
   // TODO - filter trips by tripId
 
   return filtered.length ? filtered[0] : { error: true };
-
-
-
-  // cards.filter(card => card.columnId == columnId && new RegExp(searchString, 'i').test(card.title));
-  // export const getCardsForColumn = ({ cards, searchString }, columnId) => cards.filter(card => card.columnId == columnId && new RegExp(searchString, 'i').test(card.title));
 };
 
 export const getTripsForCountry = ({ trips }, countryCode) => {

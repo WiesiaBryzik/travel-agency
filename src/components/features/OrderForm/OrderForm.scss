@@ -1,1 +1,8 @@
 @import '../../../styles/settings.scss';
+
+.form {
+  background-color: $color-background;
+  border: 3px solid $color-dark;
+  padding-top: 15px;
+  padding-left: 15px;
+}

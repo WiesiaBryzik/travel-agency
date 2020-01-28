@@ -8,7 +8,7 @@ describe('Component TripSummary', () => {
 
     const component = shallow(<TripSummary id={expectedId} />);
 
-    expect(component.find('link').prop('to')).toEqual('/trip/${expectedId}');
+    expect(component.find('.link').prop('to')).toEqual(`/trip/${expectedId}`);
   });
 
   it('should render correct image & has correct alt', () => {
@@ -23,14 +23,14 @@ describe('Component TripSummary', () => {
 
   it('should render correct name, cost & days', () => {
     const expectedName = 'Lorem ipsum';
+    const expectedDays = 5;
     const expectedCost = '10';
-    const expectedDays = '5';
 
     const component = shallow(<TripSummary name={expectedName} cost={expectedCost} days={expectedDays} />);
 
     expect(component.find('.title').text()).toEqual(expectedName);
-    expect(component.find('.details').text()).toEqual(expectedCost);
-    expect(component.find('.details').text()).toEqual(expectedDays);
+    expect(component.find('.details span').at(0).text()).toEqual(`${expectedDays} days`);
+    expect(component.find('.details span').at(1).text()).toEqual(`from ${expectedCost}`);
   });
 
   it('should render correct tags array', () => {

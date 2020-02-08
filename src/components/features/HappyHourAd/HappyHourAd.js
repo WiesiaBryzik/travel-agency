@@ -15,6 +15,7 @@ class HappyHourAd extends React.Component {
 
   static propTypes = {
     title: PropTypes.node,
+    promoDescription: PropTypes.node,
   };
 
   getCountdownTime() {
@@ -29,10 +30,13 @@ class HappyHourAd extends React.Component {
   }
 
   render() {
+
+    const time = this.getCountdownTime();
+
     return (
       <div className={styles.component}>
         <h3 className={styles.title}>{this.props.title}</h3>
-        <div className={styles.promoDescription}>{this.getCountdownTime()}</div>
+        <div className={styles.promoDescription}>{time > 23*60*60 ? this.props.promoDescription : time}</div>
       </div>
     );
   }

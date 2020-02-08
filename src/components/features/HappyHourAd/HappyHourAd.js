@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '.HappyHourAd.scss';
+import styles from './HappyHourAd.scss';
 
 class HappyHourAd extends React.Component {
 
@@ -10,8 +10,6 @@ class HappyHourAd extends React.Component {
     /* run this.forceUpdate() every second */
     setInterval(() => this.forceUpdate(), 1000);
   }
-
-
 
   static propTypes = {
     title: PropTypes.node,

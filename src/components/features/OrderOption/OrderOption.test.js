@@ -178,7 +178,7 @@ for (let type in optionTypes) {
 
         it('should run setOrderOption function on change', () => {
           renderedSubcomponent.find(DatePicker).simulate('change', testValue);
-          expect(mockSetOrderOption).toBeCalledTimes(0);
+          expect(mockSetOrderOption).toBeCalledTimes(1);
           expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
         });
         break;
